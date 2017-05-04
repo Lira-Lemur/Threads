@@ -12,14 +12,12 @@ public class ValueChanger {
 
     private int primitive;
     private AtomicInteger atomic;
-    private ExecutorService executor = Executors.newCachedThreadPool();
-
-    private String name;
 
     private ValueChanger() {
     }
 
     private class PrimitiveRunner implements Runnable {
+
         public void run() {
             try {
                 Thread.sleep(1);
@@ -45,6 +43,8 @@ public class ValueChanger {
     }
 
     private void changePrimitive() throws InterruptedException {
+
+        ExecutorService executor = Executors.newCachedThreadPool();
 
         primitive = 0;
 
@@ -106,7 +106,6 @@ public class ValueChanger {
         new MethodsRunner(valueChanger, "Test1");
         new MethodsRunner(valueChanger, "Test2");
         new MethodsRunner(valueChanger, "Test3");
-
     }
 }
 
